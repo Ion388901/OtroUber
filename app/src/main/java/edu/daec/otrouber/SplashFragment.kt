@@ -1,30 +1,31 @@
 package edu.daec.otrouber
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 
 /**
  * A simple [Fragment] subclass.
  */
-class DetalleFragment : Fragment() {
+class SplashFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detalle, container, false)
+        return inflater.inflate(R.layout.fragment_splash, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var detail:Button = view.findViewById(R.id.send_button)
-        detail.setOnClickListener {
-            view.findNavController().navigate(R.id.altaFragment)
-        }
+        Handler().postDelayed({view.findNavController().navigate(R.id.mapaFragment)}, 500)
     }
 
 }

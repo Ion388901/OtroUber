@@ -33,6 +33,7 @@ class AltaFragment : Fragment() {
             val item = Item("", description_edittext.text.toString(),cantidad_edittext.text.toString().toInt() )
             despensaFirebase.cargaUnItem(item)
             context!!.hideKeyboard(it)
+            view!!.findNavController().navigate(R.id.mapaFragment)
             }
 
     }

@@ -61,6 +61,15 @@ class MapaFragment : Fragment(), OnMapReadyCallback {
                     14f
                 )
             )
+            googleMap.setOnMarkerClickListener { marker ->
+                if (marker.isInfoWindowShown) {
+                    marker.hideInfoWindow()
+                } else {
+                    marker.showInfoWindow()
+                    view!!.findNavController().navigate(R.id.detalleFragment)
+                }
+                true
+            }
         }
 
 
